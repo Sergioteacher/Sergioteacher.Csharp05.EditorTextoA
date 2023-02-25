@@ -116,14 +116,19 @@ namespace Sergioteacher.Csharp05.EditorTextoA
     }
 
 
+    /*
+     * ########################################################################
+     * xmlns:local="clr-namespace:Sergioteacher.Csharp05.EditorTextoA"
+     * xmlns:self="clr-namespace:Sergioteacher.Csharp05.EditorTextoA"
+     * Hay que definir un espacio de nombres 
+     * donde buscará
+     * por defecto WPF crea xmlns:local
+     * sino
+     * lo puedes llamar xmlns:self, por ej.  (sino no lo ha creado)
+    */
+
     /// <summary>
-    /// xmlns:local="clr-namespace:Sergioteacher.Csharp05.EditorTextoA"
-    /// xmlns:self="clr-namespace:Sergioteacher.Csharp05.EditorTextoA"
-    /// Hay que definir un espacio de nombres 
-    /// donde buscará
-    /// por defecto WPF crea xmlns:local
-    /// sino
-    /// lo puedes llamar xmlns:self, por ej.  (sino no lo ha creado)
+    /// Implementación de un "Command" customizado
     /// </summary>
     public static class MisComandos
     {
