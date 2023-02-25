@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.IO;
+using Microsoft.Win32;
 
 namespace Sergioteacher.Csharp05.EditorTextoA
 {
@@ -22,6 +23,7 @@ namespace Sergioteacher.Csharp05.EditorTextoA
     public partial class MainWindow : Window
     {
         private Boolean modificado = false;
+        private static String tituloA = "EditorTextoA";
 
         /// <summary>
         /// Función principal.
@@ -110,6 +112,7 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             else 
             {
                 Tedit.Text = "";
+                modificado = false;
             }
         }
 
@@ -129,7 +132,30 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         /// <param name="e"></param>
         private void CommandBinding_Executed_Open(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Open");
+            if (modificado)
+            {
+                MessageBoxResult resultado = MessageBox.Show("Se ha modificado, ¿Guardar?", "Duda...", MessageBoxButton.YesNo);
+                switch (resultado)
+                {
+                    case MessageBoxResult.Yes:
+                        MessageBox.Show("Se guardaría", "Guardando...");
+                        break;
+                }
+            }
+
+            OpenFileDialog fichero = new OpenFileDialog();
+            fichero.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            //fichero.InitialDirectory= @"c:\";
+            fichero.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (fichero.ShowDialog() == true)
+            {
+                Tedit.Text = File.ReadAllText(fichero.FileName);
+                modificado = false;
+            }
+            else
+            {
+                MessageBox.Show(" No se ha selecionado NADA", "Nada de nada", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         /// <summary>
@@ -236,6 +262,7 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             Testado.Text = " Fila: " + (fila + 1).ToString() + ", Columna: " + (columna + 1).ToString();
 
             modificado = true;
+            Ventana1.Title = Ventana1.Title + "*";
         }
 
         private void Tedit_KeyUp(object sender, KeyEventArgs e)
