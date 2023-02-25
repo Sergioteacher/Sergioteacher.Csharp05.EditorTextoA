@@ -129,7 +129,7 @@ namespace Sergioteacher.Csharp05.EditorTextoA
     {
         public static readonly RoutedUICommand GuardarEn = new RoutedUICommand
             (
-                "GuardarEn",
+                "Guardar en otro archivo",
                 "GuardarEn",
                 typeof(MisComandos),
                 new InputGestureCollection()
