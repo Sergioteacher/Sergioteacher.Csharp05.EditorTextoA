@@ -128,6 +128,25 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         }
 
         /// <summary>
+        /// Acepta la captura del evento Print
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_CanExecute_Print(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde Print
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_Executed_Print(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Imprimiendo ...");
+        }
+
+        /// <summary>
         /// Acepta la captura del evento Help
         /// </summary>
         /// <param name="sender"></param>
@@ -201,6 +220,9 @@ namespace Sergioteacher.Csharp05.EditorTextoA
     /// </summary>
     public static class MisComandos
     {
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde GuardarEn
+        /// </summary>
         public static readonly RoutedUICommand GuardarEn = new RoutedUICommand
             (
                 "Guardar en otro archivo",

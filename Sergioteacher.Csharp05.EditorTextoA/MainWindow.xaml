@@ -13,19 +13,20 @@
         <CommandBinding Command="New" CanExecute="CommandBinding_CanExecute_New" Executed="CommandBinding_Executed_New" />
         <CommandBinding Command = "Help" CanExecute="CommandBinding_CanExecute_Help" Executed="CommandBinding_Executed_Help"/>
         <CommandBinding Command="local:MisComandos.GuardarEn"  CanExecute="CommandBinding_CanExecute_GuardarEn" Executed="CommandBinding_Executed_GuardarEn"/>
+        <CommandBinding Command="Print" CanExecute="CommandBinding_CanExecute_Print" Executed="CommandBinding_Executed_Print" />
     </Window.CommandBindings>
     <DockPanel LastChildFill="True">
         <Menu FontSize="14" Background="LightCyan" DockPanel.Dock="Top">
 
             <MenuItem Header="_Archivo" >
                 <MenuItem Header="_Nuevo" Command="New" InputGestureText="Crtl+N"/>
-                <MenuItem Header="_Abrir" Command="Open" InputGestureText="Crtl+O"/>
-                <MenuItem Header="_Guardar" Command="Save" InputGestureText="Crtl+S"/>
-                <MenuItem Header="Guardar como" Command="local:MisComandos.GuardarEn" />
+                <MenuItem Header="Abrim_os" Command="Open" InputGestureText="Crtl+O"/>
+                <MenuItem Header="Guardamo_s" Command="Save" InputGestureText="Crtl+S"/>
+                <MenuItem Header="Guardar _en" Command="local:MisComandos.GuardarEn" />
                 <Separator />
-                <MenuItem Header="_Imprimir" Command="Print" />
+                <MenuItem Header="Im_primir" Command="Print" />
                 <Separator />
-                <MenuItem x:Name="Salir"  Click="Salir_Click" Header="_Salir" />
+                <MenuItem x:Name="Salir"  Click="Salir_Click" Header="S_alir" />
             </MenuItem>
             <MenuItem Header="_Editar" >
                 <MenuItem Header="Deshacer" Command="Undo" />
@@ -39,14 +40,14 @@
             </MenuItem>
             <Separator />
             <MenuItem Header="Ay_uda" >
-                <MenuItem Header="ayudita" Command="Help" />
-                <MenuItem x:Name="Acercade" Click="Acercade_Click"  Header="Acerca de ..." />
+                <MenuItem Header="ayudit_a" Command="Help" />
+                <MenuItem x:Name="Acercade" Click="Acercade_Click"  Header="Acer_ca de ..." />
             </MenuItem>
 
         </Menu>
 
         <TextBlock x:Name="Testado" TextWrapping="Wrap" Text="Iniciando ..." DockPanel.Dock="Bottom"/>
-        <TextBox x:Name="Tedit" TextChanged="Tedit_TextChanged" KeyUp="Tedit_KeyUp" TextWrapping="Wrap" Text="" AcceptsReturn="True" AcceptsTab="True"/>
+        <TextBox x:Name="Tedit" TextChanged="Tedit_TextChanged" KeyUp="Tedit_KeyUp"  Text="" AcceptsReturn="True" AcceptsTab="True" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto"/>
         
     </DockPanel>
 </Window>

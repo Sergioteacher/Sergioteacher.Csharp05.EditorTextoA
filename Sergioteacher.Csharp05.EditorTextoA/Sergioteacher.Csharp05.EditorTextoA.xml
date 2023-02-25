@@ -105,6 +105,20 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_Print(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Acepta la captura del evento Print
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_Executed_Print(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Implementación específica de la llamada a "Command" desde Print
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_Help(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
             <summary>
             Acepta la captura del evento Help
@@ -127,6 +141,11 @@
         <member name="T:Sergioteacher.Csharp05.EditorTextoA.MisComandos">
             <summary>
             Implementación de un "Command" customizado
+            </summary>
+        </member>
+        <member name="F:Sergioteacher.Csharp05.EditorTextoA.MisComandos.GuardarEn">
+            <summary>
+            Implementación específica de la llamada a "Command" desde GuardarEn
             </summary>
         </member>
         <member name="T:Sergioteacher.Csharp05.EditorTextoA.Properties.Resources">
