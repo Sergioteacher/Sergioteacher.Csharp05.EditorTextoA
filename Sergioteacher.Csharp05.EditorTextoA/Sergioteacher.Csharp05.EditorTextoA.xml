@@ -30,6 +30,95 @@
             MainWindow
             </summary>
         </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.#ctor">
+            <summary>
+            Función principal.
+            </summary>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.Acercade_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Atrapando el evento Clics desde el Menu -> Acerca de
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.Salir_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Atrapando el evento Clics desde el Menu -> Salir
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_New(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Acepta la captura del evento New
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_Executed_New(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Implementación específica de la llamada a "Command" desde New
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_Open(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Acepta la captura del evento Open
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_Executed_Open(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Implementación específica de la llamada a "Command" desde Open
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_Save(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Acepta la captura del evento Save
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_Executed_Save(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Implementación específica de la llamada a "Command" desde Save
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_GuardarEn(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Acepta la captura del evento GuardarEn
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_Executed_GuardarEn(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Implementación específica de la llamada a "Command" desde GuardarEn
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_CanExecute_Help(System.Object,System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Acepta la captura del evento Help
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.CommandBinding_Executed_Help(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            Implementación específica de la llamada a "Command" desde Help
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:Sergioteacher.Csharp05.EditorTextoA.MainWindow.InitializeComponent">
             <summary>
             InitializeComponent

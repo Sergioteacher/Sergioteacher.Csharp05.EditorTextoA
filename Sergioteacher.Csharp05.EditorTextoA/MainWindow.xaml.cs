@@ -21,23 +21,136 @@ namespace Sergioteacher.Csharp05.EditorTextoA
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Función principal.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        
 
+        //  ########################################################################
+        /// <summary>
+        /// Atrapando el evento Clics desde el Menu -> Acerca de
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Acercade_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Un editor");
         }
-
+        /// <summary>
+        /// Atrapando el evento Clics desde el Menu -> Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Salir_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        //  ########################################################################
+        /// <summary>
+        /// Acepta la captura del evento New
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_CanExecute_New(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde New
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_Executed_New(object sender, ExecutedRoutedEventArgs e)
+        {
+            Tedit.Text = "";
+        }
+
+        /// <summary>
+        /// Acepta la captura del evento Open
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_CanExecute_Open(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde Open
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_Executed_Open(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Open");
+        }
+
+        /// <summary>
+        /// Acepta la captura del evento Save
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_CanExecute_Save(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde Save
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_Executed_Save(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Save");
+        }
+
+        /// <summary>
+        /// Acepta la captura del evento GuardarEn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_CanExecute_GuardarEn(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde GuardarEn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_Executed_GuardarEn(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Guardar en ...");
+        }
+
+        /// <summary>
+        /// Acepta la captura del evento Help
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_CanExecute_Help(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        /// <summary>
+        /// Implementación específica de la llamada a "Command" desde Help
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CommandBinding_Executed_Help(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Help");
+        }
+        /*
+         * Con en control desde el Command -> Help
+         * gracias a "RoutedUICommand"
+         * no hace falta capturar "F1"
+         * ni implementar un evento Clic para el menu
+         * 
         private void Ventana1_KeyDown(object sender, KeyEventArgs e)
         {
             if ( e.Key == Key.F1 )
@@ -46,56 +159,12 @@ namespace Sergioteacher.Csharp05.EditorTextoA
                 MessageBox.Show("Ayuda");
             }
         }
+        // en XAML -->  KeyDown="Ventana1_KeyDown"
+        */
 
-        private void CommandBinding_CanExecute_Open(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
 
-        private void CommandBinding_Executed_Open(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("Open");
-        }
 
-        private void CommandBinding_CanExecute_Save(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void CommandBinding_Executed_Save(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("Save");
-        }
-
-        private void CommandBinding_CanExecute_New(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void CommandBinding_Executed_New(object sender, ExecutedRoutedEventArgs e)
-        {
-            Tedit.Text = "";
-        }
-
-        private void CommandBinding_CanExecute_Help(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void CommandBinding_Executed_Help(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("Help");
-        }
-
-        private void CommandBinding_CanExecute_GuardarEn(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void CommandBinding_Executed_GuardarEn(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("Guardar en ...");
-        }
+        
 
 
         private void Tedit_TextChanged(object sender, TextChangedEventArgs e)

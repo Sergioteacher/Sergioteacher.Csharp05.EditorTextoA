@@ -6,12 +6,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sergioteacher.Csharp05.EditorTextoA"
         mc:Ignorable="d"
-        Title="EditorTextoA" Height="450" Width="800" Background="AliceBlue" FontSize="16" KeyDown="Ventana1_KeyDown" >
+        Title="EditorTextoA" Height="450" Width="800" Background="AliceBlue" FontSize="16"  >
     <Window.CommandBindings>
         <CommandBinding Command="Open" CanExecute="CommandBinding_CanExecute_Open" Executed="CommandBinding_Executed_Open" />
         <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute_Save" Executed="CommandBinding_Executed_Save" />
         <CommandBinding Command="New" CanExecute="CommandBinding_CanExecute_New" Executed="CommandBinding_Executed_New" />
-        <CommandBinding Command="Help" CanExecute="CommandBinding_CanExecute_Help" Executed="CommandBinding_Executed_Help"/>
+        <CommandBinding Command = "Help" CanExecute="CommandBinding_CanExecute_Help" Executed="CommandBinding_Executed_Help"/>
         <CommandBinding Command="local:MisComandos.GuardarEn"  CanExecute="CommandBinding_CanExecute_GuardarEn" Executed="CommandBinding_Executed_GuardarEn"/>
     </Window.CommandBindings>
     <DockPanel LastChildFill="True">
