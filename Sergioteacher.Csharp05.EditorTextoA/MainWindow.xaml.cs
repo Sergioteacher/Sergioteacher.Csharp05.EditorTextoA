@@ -21,6 +21,8 @@ namespace Sergioteacher.Csharp05.EditorTextoA
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Boolean modificado = false;
+
         /// <summary>
         /// Función principal.
         /// </summary>
@@ -50,6 +52,24 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             Application.Current.Shutdown();
         }
 
+        private void Ventana1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (modificado)
+            {
+                MessageBoxResult resultado = MessageBox.Show("Se ha modificado, ¿Guardar?", "Duda...", MessageBoxButton.YesNo);
+                switch (resultado)
+                {
+                    case MessageBoxResult.Yes:
+                        MessageBox.Show("Se guardaría y sale", "Guardando...");
+                        break;
+                    case MessageBoxResult.No:
+                        MessageBox.Show("Se sale sólo", "Borrando...");
+                        break;
+                }
+            }
+        }
+
+
         //  ########################################################################
         /// <summary>
         /// Acepta la captura del evento New
@@ -67,7 +87,30 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         /// <param name="e"></param>
         private void CommandBinding_Executed_New(object sender, ExecutedRoutedEventArgs e)
         {
-            Tedit.Text = "";
+            if ( modificado )
+            {
+                MessageBoxResult resultado = MessageBox.Show("Se ha modificado, ¿Guardar?","Duda...",MessageBoxButton.YesNoCancel);
+                switch (resultado)
+                {
+                    case MessageBoxResult.Yes:
+                        MessageBox.Show("Se guardaría", "Guardando...");
+                        Tedit.Text = "";
+                        modificado = false;
+                        break;
+                    case MessageBoxResult.No:
+                        MessageBox.Show("Pantalla limpia", "Borrando...");
+                        Tedit.Text = "";
+                        modificado = false;
+                        break;
+                    case MessageBoxResult.Cancel:
+                        MessageBox.Show("Cancelado -> Na de na!", "Sin cambios");
+                        break;
+                }
+            }
+            else 
+            {
+                Tedit.Text = "";
+            }
         }
 
         /// <summary>
@@ -191,6 +234,8 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             int fila = Tedit.GetLineIndexFromCharacterIndex(Tedit.CaretIndex);
             int columna = Tedit.CaretIndex - Tedit.GetCharacterIndexFromLineIndex(fila);
             Testado.Text = " Fila: " + (fila + 1).ToString() + ", Columna: " + (columna + 1).ToString();
+
+            modificado = true;
         }
 
         private void Tedit_KeyUp(object sender, KeyEventArgs e)
