@@ -15,15 +15,19 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 
+
 namespace Sergioteacher.Csharp05.EditorTextoA
 {
+
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Boolean modificado = false;
+
         private static String tituloA = "EditorTextoA";
+        private static String fpath;
+        bool modificado;
 
         /// <summary>
         /// Función principal.
@@ -31,6 +35,9 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = tituloA;
+            fpath = "";
+            modificado = false;
         }
 
 
@@ -42,7 +49,13 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         /// <param name="e"></param>
         private void Acercade_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Un editor");
+            MessageBox.Show("Un editor, con un control básico de edición \n " +
+                "mostrando:\n" +
+                "   -Un menú con `Command´ \n" +
+                "   -y facilidades de fichero con Win32" +
+                "\n" +
+                "\n" +
+                "             Copyright (C) Sergioteacher", "Edidor básico");
         }
         /// <summary>
         /// Atrapando el evento Clics desde el Menu -> Salir
@@ -95,14 +108,43 @@ namespace Sergioteacher.Csharp05.EditorTextoA
                 switch (resultado)
                 {
                     case MessageBoxResult.Yes:
-                        MessageBox.Show("Se guardaría", "Guardando...");
+
+                        if (fpath == "")
+                        {
+                            SaveFileDialog ficherito = new SaveFileDialog();
+                            ficherito.Filter = "Text file (*.txt)|*.txt|C# file (*.cs)|*.cs|All files (*.*)|*.*";
+                            ficherito.InitialDirectory = @"c:\";
+                            ficherito.AddExtension = true;
+                            if (ficherito.ShowDialog() == true)
+                            {
+                                File.WriteAllText(ficherito.FileName, Tedit.Text);
+                                modificado = false;
+                                fpath = ficherito.FileName;
+                                Ventana1.Title = tituloA + " " + fpath;
+                            }
+                            else
+                            {
+                                MessageBox.Show(" Cancelado ", "Na de na", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            File.WriteAllText(fpath, Tedit.Text);
+                            modificado = false;
+                            Ventana1.Title = tituloA + " " + fpath;
+                        }
+
                         Tedit.Text = "";
+                        fpath = "";
                         modificado = false;
+                        Ventana1.Title = tituloA + " " + fpath;
                         break;
                     case MessageBoxResult.No:
                         MessageBox.Show("Pantalla limpia", "Borrando...");
                         Tedit.Text = "";
+                        fpath = "";
                         modificado = false;
+                        Ventana1.Title = tituloA + " " + fpath;
                         break;
                     case MessageBoxResult.Cancel:
                         MessageBox.Show("Cancelado -> Na de na!", "Sin cambios");
@@ -112,7 +154,9 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             else 
             {
                 Tedit.Text = "";
+                fpath = "";
                 modificado = false;
+                Ventana1.Title = tituloA + " " + fpath;
             }
         }
 
@@ -138,7 +182,30 @@ namespace Sergioteacher.Csharp05.EditorTextoA
                 switch (resultado)
                 {
                     case MessageBoxResult.Yes:
-                        MessageBox.Show("Se guardaría", "Guardando...");
+                        if (fpath == "")
+                        {
+                            SaveFileDialog ficherito = new SaveFileDialog();
+                            ficherito.Filter = "Text file (*.txt)|*.txt|C# file (*.cs)|*.cs|All files (*.*)|*.*";
+                            ficherito.InitialDirectory = @"c:\";
+                            ficherito.AddExtension = true;
+                            if (ficherito.ShowDialog() == true)
+                            {
+                                File.WriteAllText(ficherito.FileName, Tedit.Text);
+                                modificado = false;
+                                fpath = ficherito.FileName;
+                                Ventana1.Title = tituloA + " " + fpath;
+                            }
+                            else
+                            {
+                                MessageBox.Show(" Cancelado ", "Na de na", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            File.WriteAllText(fpath, Tedit.Text);
+                            modificado = false;
+                            Ventana1.Title = tituloA + " " + fpath;
+                        }
                         break;
                 }
             }
@@ -151,6 +218,8 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             {
                 Tedit.Text = File.ReadAllText(fichero.FileName);
                 modificado = false;
+                fpath = fichero.FileName;
+                Ventana1.Title = tituloA + " " + fpath;
             }
             else
             {
@@ -174,7 +243,32 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         /// <param name="e"></param>
         private void CommandBinding_Executed_Save(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Save");
+            if (Mguardar.IsEnabled == true) {
+            if (fpath == "")
+            {
+                SaveFileDialog ficherito = new SaveFileDialog();
+                ficherito.Filter = "Text file (*.txt)|*.txt|C# file (*.cs)|*.cs|All files (*.*)|*.*";
+                ficherito.InitialDirectory = @"c:\";
+                ficherito.AddExtension = true;
+                if (ficherito.ShowDialog() == true)
+                {
+                    File.WriteAllText(ficherito.FileName, Tedit.Text);
+                    modificado = false;
+                    fpath = ficherito.FileName;
+                    Ventana1.Title = tituloA + " " + fpath;
+                }
+                else
+                {
+                    MessageBox.Show(" Cancelado ", "Na de na", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            else
+            {
+                File.WriteAllText(fpath, Tedit.Text);
+                modificado = false;
+                Ventana1.Title = tituloA + " " + fpath;
+            }
+            }
         }
 
         /// <summary>
@@ -193,7 +287,21 @@ namespace Sergioteacher.Csharp05.EditorTextoA
         /// <param name="e"></param>
         private void CommandBinding_Executed_GuardarEn(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Guardar en ...");
+            SaveFileDialog ficherito = new SaveFileDialog();
+            ficherito.Filter = "Text file (*.txt)|*.txt|C# file (*.cs)|*.cs|All files (*.*)|*.*";
+            ficherito.InitialDirectory = @"c:\";
+            ficherito.AddExtension = true;
+            if (ficherito.ShowDialog() == true)
+            {
+                File.WriteAllText(ficherito.FileName, Tedit.Text);
+                modificado = false;
+                fpath = ficherito.FileName;
+                Ventana1.Title = tituloA + " " + fpath;
+            }
+            else
+            {
+                MessageBox.Show(" Cancelado ", "Na de na", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
 
         /// <summary>
@@ -252,7 +360,7 @@ namespace Sergioteacher.Csharp05.EditorTextoA
 
 
 
-        
+
 
 
         private void Tedit_TextChanged(object sender, TextChangedEventArgs e)
@@ -262,7 +370,8 @@ namespace Sergioteacher.Csharp05.EditorTextoA
             Testado.Text = " Fila: " + (fila + 1).ToString() + ", Columna: " + (columna + 1).ToString();
 
             modificado = true;
-            Ventana1.Title = Ventana1.Title + "*";
+            Ventana1.Title = tituloA + " *" +fpath ;
+            if (fpath != "") { Mguardar.IsEnabled = true; }
         }
 
         private void Tedit_KeyUp(object sender, KeyEventArgs e)

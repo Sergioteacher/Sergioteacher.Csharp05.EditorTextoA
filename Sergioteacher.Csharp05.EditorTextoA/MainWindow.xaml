@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sergioteacher.Csharp05.EditorTextoA"
         mc:Ignorable="d"
-        Title="EditorTextoA" Height="450" Width="800" Background="AliceBlue" FontSize="16" Closing="Ventana1_Closing" >
+        Height="450" Width="800" Background="AliceBlue" FontSize="16" Closing="Ventana1_Closing" >
     <Window.CommandBindings>
         <CommandBinding Command="Open" CanExecute="CommandBinding_CanExecute_Open" Executed="CommandBinding_Executed_Open" />
         <CommandBinding Command="Save" CanExecute="CommandBinding_CanExecute_Save" Executed="CommandBinding_Executed_Save" />
@@ -21,7 +21,7 @@
             <MenuItem Header="_Archivo" >
                 <MenuItem Header="_Nuevo" Command="New" InputGestureText="Crtl+N"/>
                 <MenuItem Header="Abrim_os" Command="Open" InputGestureText="Crtl+O"/>
-                <MenuItem Header="Guardamo_s" Command="Save" InputGestureText="Crtl+S"/>
+                <MenuItem x:Name="Mguardar" Header="Guardamo_s" Command="Save" InputGestureText="Crtl+S" IsEnabled="False"/>
                 <MenuItem Header="Guardar _en" Command="local:MisComandos.GuardarEn" />
                 <Separator />
                 <MenuItem Header="Im_primir" Command="Print" />
