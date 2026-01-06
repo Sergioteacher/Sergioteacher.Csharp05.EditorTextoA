@@ -1,2 +1,20 @@
 Un pequeño ejemplo
 de un editor básico de texto con C# y WPF.
+
+.
+
+Esta parte del "Leeme", es igual a todos los proyectos que tengo en "GitHub":
+
+<< Este es un ejemplo de código, que pretende estimular el entendimiento del lenguaje que uso,
+no intento que sea perfecto, es más, en todos los ejemplos siempre dejo algo a mejorar, 
+están realizados para ser copiados y experimentar con el código adaptándolo a tus necesidades o mejorarlo.
+Mi recompensa es que sea útil para aprender.
+Agradezco todos los comentarios.>>
+
+This part of the "Readme" is the same as in all my projects on GitHub:
+
+<< This is a code example intended to stimulate understanding of the language I use.
+I'm not trying to make it perfect; in fact, I always leave room for improvement in all my examples.
+They are designed to be copied and used for experimentation, adapting the code to your needs or improving it.
+My reward is that it's useful for learning.
+I appreciate all feedback.>>
